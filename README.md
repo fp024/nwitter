@@ -36,6 +36,28 @@ Twitter (mini)clone with React and Firebase
         PORT={포트번호} npm run start
         ``` 
 
+### fbase.js에서의 import
+* 집필시점이후로 firebase에 변경이 있어서 그런 것 같다. compat 경로를 추가해주면 에러는 해결된다.
+  ```javascript
+  import firebase from "firebase/compat/app";
+  /*
+    firebase/app 으로 import 하면, 아래 오류가 발생한다.
+    Attempted import error: 'firebase/app' does not contain a default export (imported as 'firebase').
+    https://stackoverflow.com/questions/68946446/how-do-i-fix-a-firebase-9-0-import-error-attempted-import-error-firebase-app
+  */
+  import "firebase/compat/auth"
+  /*  
+    "firebase/auth" 을 import 하면 아래 오류가 발생한다.  app과 마찬가지로 compat경로를 붙인다.
+    TypeError: firebase_compat_app__WEBPACK_IMPORTED_MODULE_0__.default.auth is not a function
+  */
+  import "firebase/compat/firestore"
+  /*
+    "firebase/firestore" 을 import 하면 아래 오류가 발생한다.  app과 마찬가지로 compat경로를 붙인다.
+    TypeError: firebase_compat_app__WEBPACK_IMPORTED_MODULE_0__.default.firestore is not a function
+  */
+  ```
+
+
 
 ### 필요 배경지식 링크
 *  
