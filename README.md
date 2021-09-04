@@ -33,9 +33,23 @@ Twitter (mini)clone with React and Firebase
       ```
       * 포트 변경을 하고 싶다면
         ```bash
-        PORT={포트번호} npm run start
+        PORT={포트번호} npm run start       
         ``` 
+  * VSCode의 터미널에서 서버 시작을 하면 포트포워딩을 자동으로 해줌
+    * 호스트 머신에서 `http://localhost:3000` 으로 접근 가능함
+
+### 질문
+1. Ubuntu에서 재부팅하거나 쉘을 다시 시작하게되면 `npm install firebase` 를 다시 해줘야만 적용이 되는데? 원래 이런 것인지?
+  * 그런데.. npm명령을 sudo로 명령어를 실행했을 때는, 재부팅 또는 쉘을 다시시작하더라도 문제가 없었음.
+  * 그런데.. npm 명령을 sudo로 실행하지 말라고 함...
+    * https://stackoverflow.com/questions/16151018/how-to-fix-npm-throwing-error-without-sudo
+      * 아래와 같이 하였음.
+        1. `sudo npm uninstall firebase`
+        2. `sudo chown -R $(whoami) ~/.npm`
+        3. `npm install firebase` 
+      * 이렇게 하고 재부팅 후에도 일부러 firebase를 설치할 필요는 없긴한데.. 이전에 루트로 설치한 영향이 남아서 그런것일지는 잘모르겠다.
 
 
 ### 필요 배경지식 링크
-*  
+
+
