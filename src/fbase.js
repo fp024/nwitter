@@ -9,6 +9,11 @@ import "firebase/compat/auth"
   "firebase/auth" 을 import 하면 아래 오류가 발생한다.  app과 마찬가지로 compat경로를 붙인다.
   TypeError: firebase_compat_app__WEBPACK_IMPORTED_MODULE_0__.default.auth is not a function
 */
+import "firebase/compat/firestore"
+/*
+  "firebase/firestore" 을 import 하면 아래 오류가 발생한다.  app과 마찬가지로 compat경로를 붙인다.
+  TypeError: firebase_compat_app__WEBPACK_IMPORTED_MODULE_0__.default.firestore is not a function
+ */
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -23,3 +28,4 @@ firebase.initializeApp(firebaseConfig);
 
 export const firebaseInstance = firebase;
 export const authService = firebase.auth();
+export const dbService = firebase.firestore();
