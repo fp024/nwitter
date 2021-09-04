@@ -70,8 +70,25 @@ Twitter (mini)clone with React and Firebase
   */
   ```
 
-
-
+### VSCode 관련 메시지
+* Unable to watch for file changes in this large workspace folder.
+  * 해결방법 가이드
+    * https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc
+  * VS Code의 파일 감시기의 핸들이 부족해서 나타나는 현상.
+    * 프로젝트에 한정된 내용이라 방법1이 나을 것 같다.
+    * 방법1: settings.json 에 감시 제외 경로 추가
+      ```
+      "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true
+      }
+      ```
+    * 방법2: 시스템의 `/etc/sysctl.conf` 의 `fs.inotify.max_user_watches` 항목을 수정 후 `sudo sysctl -p` 로 적용
+      ```
+      fs.inotify.max_user_watches=524288
+      ```
+ 
 ### 필요 배경지식 링크
 
 
