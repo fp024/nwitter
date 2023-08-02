@@ -34,7 +34,7 @@ Twitter (mini)clone with React and Firebase
       * 포트 변경을 하고 싶다면
         ```bash
         PORT={포트번호} npm run start       
-        ``` 
+        ```
   * VSCode의 터미널에서 서버 시작을 하면 포트포워딩을 자동으로 해줌
     * 호스트 머신에서 `http://localhost:3000` 으로 접근 가능함
 
@@ -88,7 +88,22 @@ Twitter (mini)clone with React and Firebase
       ```
       fs.inotify.max_user_watches=524288
       ```
- 
+
 ### 필요 배경지식 링크
 
 
+
+---
+
+### ✨ 오랜만에...  실행을 해봤는데... 잘되는 것 같다.
+
+단지... Node 18 LTS에서 실행시... OpenSSL 오류가 나서 ...
+
+처음에는 Node 14 LTS로 실행했다가... 그냥 `npm audit fix --force` 명령으로 디펜던시 업데이트를 해버렸음.
+
+* https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported
+
+디펜던시 업데이트 후, Node 18 LTS 버전에서 OpenSSL오류 없이 잘 실행되었다.
+
+* 디펜던시 변경은 ..
+  * `"react-scripts": "4.0.3"` >   `"^5.0.1"`로 바뀜.
