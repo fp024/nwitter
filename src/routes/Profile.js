@@ -1,13 +1,13 @@
-import { authService } from "fbase";
-import { useHistory } from "react-router";
+import { authService } from 'fbase';
+import { useHistory } from 'react-router';
 
 const Profile = () => {
   const history = useHistory();
 
   const onLogOutClick = () => {
     authService.signOut();
-    history.push("/");
-  }
+    history.push('/');
+  };
 
 
   return (

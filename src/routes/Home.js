@@ -1,16 +1,16 @@
-import { dbService } from "fbase"
-import { useEffect, useState } from "react";
-import Nweet from "components/Nweet";
+import { dbService } from 'fbase';
+import { useEffect, useState } from 'react';
+import Nweet from 'components/Nweet';
 
 const Home = ({ userObj }) => {
-  const [nweet, setNweet] = useState("");
+  const [nweet, setNweet] = useState('');
   const [nweets, setNweets] = useState([]);
 
   useEffect(() => {
-    dbService.collection("nweets").onSnapshot((snapshot) => {
+    dbService.collection('nweets').onSnapshot((snapshot) => {
       const newArray = snapshot.docs.map((document) => ({
         id: document.id,
-        ...document.data(),
+        ...document.data()
       }));
       setNweets(newArray);
     });
@@ -18,21 +18,21 @@ const Home = ({ userObj }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    await dbService.collection("nweets").add({
+    await dbService.collection('nweets').add({
       text: nweet,
       createdAt: Date.now(),
-      creatorId: userObj.uid,
+      creatorId: userObj.uid
     });
-    setNweet("");
-  }
+    setNweet('');
+  };
 
   const onChange = (event) => {
     event.preventDefault();
     const {
-      target: { value },
+      target: { value }
     } = event;
     setNweet(value);
-  }
+  };
 
   return (
     <>
@@ -40,18 +40,18 @@ const Home = ({ userObj }) => {
         <input
           value={nweet}
           onChange={onChange}
-          type="text"
+          type='text'
           placeholder="What's on your mind?"
           maxLength={120}
         />
-        <input type="submit" value="Nweet" />
+        <input type='submit' value='Nweet' />
       </form>
       <div>
         {nweets.map((nweet) => (
-          <Nweet 
+          <Nweet
             key={nweet.id}
             nweetObj={nweet}
-            isOwner={nweet.creatorId === userObj.uid} 
+            isOwner={nweet.creatorId === userObj.uid}
           />
         ))}
       </div>

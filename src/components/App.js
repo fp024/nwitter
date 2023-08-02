@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import AppRouter from "components/Router";
-import { authService } from "fbase";
+import { useEffect, useState } from 'react';
+import AppRouter from 'components/Router';
+import { authService } from 'fbase';
 
 function App() {
   const [init, setInit] = useState(false);
@@ -24,7 +24,7 @@ function App() {
       {init ? (
         <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} />
       ) : (
-        "initializing..."
+        'initializing...'
       )}
       <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
     </>
