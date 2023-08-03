@@ -1,5 +1,5 @@
 import { dbService, storageService } from 'fbase';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Nweet from 'components/Nweet';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -21,12 +21,22 @@ const Home = ({ userObj }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const attachmentRef = storageService
-      .ref()
-      .child(`${userObj.uid}/${uuidv4()}`);
 
-    const response = await attachmentRef.putString(attachment, 'data_url');
-    const attachmentUrl = await response.ref.getDownloadURL();
+    let attachmentUrl = '';
+
+    if (attachment !== '') {
+      const attachmentRef = storageService
+        .ref()
+        .child(`${userObj.uid}/${uuidv4()}`);
+
+      const response = await attachmentRef.putString(attachment, 'data_url');
+      attachmentUrl = await response.ref.getDownloadURL();
+
+      // 제출이 완료되고나서도 첨부파일 정보를 정리해주자!
+      // 도움이 되었던 글: https://stackoverflow.com/a/70390197
+      onClearAttachment();
+    }
+
 
     await dbService.collection('nweets').add({
       text: nweet,
@@ -64,7 +74,13 @@ const Home = ({ userObj }) => {
     reader.readAsDataURL(theFile);
   };
 
-  const onClearAttachment = () => setAttachment('');
+  const onClearAttachment = () => {
+    ref.current.value = '';
+    setAttachment('');
+  };
+
+  const ref = useRef();
+
 
   return (
     <>
@@ -76,7 +92,7 @@ const Home = ({ userObj }) => {
           placeholder="What's on your mind?"
           maxLength={120}
         />
-        <input type='file' accept='image/*' onChange={onFileChange} />
+        <input type='file' accept='image/*' ref={ref} onChange={onFileChange} />
         <input type='submit' value='Nweet' />
         {attachment && (
           <div>
