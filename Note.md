@@ -23,3 +23,11 @@
 
   컬랙션 함수 뒤에 `orderBy()`를 연달아서 실행해주면 됨.
 
+
+
+#### uuid
+
+* https://github.com/uuidjs/uuid#readme
+
+
+
