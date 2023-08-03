@@ -7,7 +7,8 @@ const Home = ({ userObj }) => {
   const [nweets, setNweets] = useState([]);
 
   useEffect(() => {
-    dbService.collection('nweets').onSnapshot((snapshot) => {
+    dbService.collection('nweets')
+      .orderBy('createdAt', 'desc').onSnapshot((snapshot) => {
       const newArray = snapshot.docs.map((document) => ({
         id: document.id,
         ...document.data()
@@ -34,6 +35,14 @@ const Home = ({ userObj }) => {
     setNweet(value);
   };
 
+  const onFileChange = (event) => {
+    const {
+      target: { files }
+    } = event;
+    const theFile = files[0];
+    console.log(theFile);
+  };
+
   return (
     <>
       <form onSubmit={onSubmit}>
@@ -44,6 +53,7 @@ const Home = ({ userObj }) => {
           placeholder="What's on your mind?"
           maxLength={120}
         />
+        <input type='file' accept='image/*' onChange={onFileChange} />
         <input type='submit' value='Nweet' />
       </form>
       <div>
