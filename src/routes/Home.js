@@ -5,7 +5,7 @@ import Nweet from 'components/Nweet';
 const Home = ({ userObj }) => {
   const [nweet, setNweet] = useState('');
   const [nweets, setNweets] = useState([]);
-  const [attachement, setAttachement] = useState('');
+  const [attachment, setAttachment] = useState('');
 
   useEffect(() => {
     dbService.collection('nweets')
@@ -47,11 +47,13 @@ const Home = ({ userObj }) => {
       const {
         currentTarget: { result }
       } = finishedEvent;
-      setAttachement(result);
+      setAttachment(result);
     };
 
     reader.readAsDataURL(theFile);
   };
+
+  const onClearAttachment = () => setAttachment('');
 
   return (
     <>
@@ -65,7 +67,12 @@ const Home = ({ userObj }) => {
         />
         <input type='file' accept='image/*' onChange={onFileChange} />
         <input type='submit' value='Nweet' />
-        {attachement && <img src={attachement} width='50px' height='50px' />}
+        {attachment && (
+          <div>
+            <img src={attachment} width='50px' height='50px' />
+            <button onClick={onClearAttachment}>Clear</button>
+          </div>
+        )}
       </form>
       <div>
         {nweets.map((nweet) => (
