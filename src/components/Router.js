@@ -7,7 +7,7 @@ import Navigation from './Navigation';
 const AppRouter = ({ isLoggedIn, userObj }) => {
   return (
     <Router>
-      {isLoggedIn && <Navigation />}
+      {isLoggedIn && <Navigation userObj={userObj} />}
       <Switch>
         {
           isLoggedIn ? (
@@ -21,9 +21,9 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
             </>
           ) : (
             <>
-            <Route exact path='/'>
-              <Auth />
-            </Route>
+              <Route exact path='/'>
+                <Auth />
+              </Route>
             </>
           )
         }
