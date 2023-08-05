@@ -6,6 +6,24 @@
 
 
 
+## 8장. 깃허브로 누이터배포하고 보안 챙기기
+
+
+
+#### 니콜라스의 스타일
+
+* 모든 작업은 기능을 우선 개발하고 나중에 코드를 정리함.
+
+
+
+
+
+
+
+---
+
+
+
 ## 7장. 프로필 페이지와 필터링 기능 만들기
 
 * 강의 동영상: https://www.youtube.com/watch?v=wvY5PVX6uxY
@@ -46,6 +64,12 @@
 
 * https://yamoo9.gitbook.io/typescript/namespace-vs-module
 * 약간은 좀 이해가 되는 것 같긴함. 😅
+
+
+
+
+
+
 
 
 
