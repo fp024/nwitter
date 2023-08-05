@@ -107,3 +107,12 @@ Twitter (mini)clone with React and Firebase
 
 * 디펜던시 변경은 ..
   * `"react-scripts": "4.0.3"` >   `"^5.0.1"`로 바뀜.
+
+
+
+### ✨ [6장 이후 진행 노트 정리](Note.md)
+
+
+
+
+
