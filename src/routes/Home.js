@@ -17,8 +17,6 @@ const Home = ({ userObj }) => {
     });
   }, []);
 
-  console.log('###', userObj);
-
   return (
     <>
       <NweetFactory userObj={userObj} />
