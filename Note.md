@@ -40,7 +40,12 @@
       
 
 
+### 내가 잘 모르는 것?
 
+자바스크립트 네임스페이스 방식을 모듈식으로 바꿨다?
+
+* https://yamoo9.gitbook.io/typescript/namespace-vs-module
+* 약간은 좀 이해가 되는 것 같긴함. 😅
 
 
 
