@@ -23,6 +23,21 @@
 
   
 
+#### 프로필 업데이트 기능 추가하기
+
+* userObj 관련 문서 살펴보고 프로파일 업데이트 하기
+
+  * https://firebase.google.com/docs/auth/web/manage-users?hl=ko#update_a_users_profile
+
+    * 위의 문서는 최신 문서다.
+
+  * compat : 네임스페이스 방식
+
+    * https://firebase.google.com/docs/reference/js/v8/firebase.User
+
+    * https://firebase.google.com/docs/reference/js/v8/firebase.User#updateprofile
+
+      
 
 
 
