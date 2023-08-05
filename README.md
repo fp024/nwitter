@@ -110,9 +110,9 @@ Twitter (mini)clone with React and Firebase
 
 
 
-### ✨ [6장 이후 진행 노트 정리](Note.md)
+### ✨ [5장 이후 진행 노트 정리](Note.md)
 
-
+2년전에 5장까지 하다말고 다시하는 거라서, 진행하면서 특이한 부분 노트로 정리했다.
 
 
 
